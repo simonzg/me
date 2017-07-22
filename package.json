@@ -20,8 +20,11 @@
     "bootstrap": "^4.0.0-alpha.6",
     "browser-sync": "^2.18.13",
     "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^4.0.0",
+    "gulp-imagemin": "^3.3.0",
     "gulp-plumber": "^1.1.0",
     "gulp-sass": "^3.1.0",
+    "gulp-sourcemaps": "^2.6.0",
     "jquery": "^3.2.1",
     "tether": "^1.4.0"
   }

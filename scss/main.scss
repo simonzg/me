@@ -1,0 +1,6 @@
+@import "bootstrap-customized";
+
+.c{
+  @extend .container;
+  font-size:14px;
+}

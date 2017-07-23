@@ -11,6 +11,27 @@ p{
 .container{
   margin: 0 auto !important;
 }
+.bg-transparent{
+  background:transparent;
+}
+.bold{
+  font-weight: bold;
+  color:#444 !important;
+}
+.nav-link{
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.nav-wrapper{
+  padding-top: 8px;
+  li{
+    list-style: none;
+    display:inline-block;
+    a{
+      padding:8px 15px;
+    }
+  }
+}
 
 /*===============================
 =            Section            =

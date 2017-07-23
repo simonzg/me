@@ -42,17 +42,23 @@ p{
   }
 }
 #section-2{
-
+  background:#efbabb;
 }
 
 #section-3{
-
+  background:#faf8e6;
 }
 
 #section-4{
-
+  background:#a4b0df;
 }
 #section-5{
+  background:#9ee0d6;
+}
+.section-sided{
+  .caption{
+    // background:rgba(255,255,255,0.8);
+  }
 }
 .section-sided:nth-of-type(even){
 .sided-wrapper{

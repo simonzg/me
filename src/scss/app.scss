@@ -5,6 +5,133 @@
 html,body,p,div,a{
   font-family: $font-family;
 }
+p{
+  margin-bottom: 5px !important;
+}
+.container{
+  margin: 0 auto !important;
+}
+
+/*===============================
+=            Section            =
+===============================*/
+
+.section {
+  *{
+    font-size:20px;
+  }
+
+  .title{
+    font-size:34px;
+    font-weight: bold;
+  }
+  .large{
+    font-size: 26px;
+    font-weight: bold;
+  }
+  .small{
+    font-size:14px;
+  }
+}
+
+#section-1 {
+  .caption{
+    padding-left: 12.5%;
+    text-align: left;
+    margin-top:20px;
+  }
+}
+#section-2{
+
+}
+
+#section-3{
+
+}
+
+#section-4{
+
+}
+#section-5{
+}
+.section-sided:nth-of-type(even){
+.sided-wrapper{
+  display:flex;
+  flex:1;
+  .image-wrapper{
+    flex:1;
+    width:70%;
+  }
+  .caption-wrapper{
+    flex: 0 0 30%;
+    position: relative;
+    order:-1;
+    .caption{
+      position: absolute;
+      bottom:5px;
+      right:40px;
+    }
+
+  }
+}
+}
+
+.section-sided:nth-of-type(odd){
+  .sided-wrapper{
+  display:flex;
+  flex:1;
+  .image-wrapper{
+    flex:1;
+    width:70%;
+  }
+  .caption-wrapper{
+    flex: 0 0 30%;
+    position:relative;
+    .caption{
+      position: absolute;
+      bottom: 5px;
+      left:40px;
+    }
+  }
+}
+}
+
+@media screen and (max-width: 768px) {
+  .section-sided:nth-of-type(even){
+    .sided-wrapper{
+    flex-direction: column;
+    .image-wrapper{
+      width:100%;
+    }
+    .caption-wrapper{
+      flex: 0 0 100%;
+      order:1;
+      .caption{
+        left:0;
+        top:20px;
+      }
+    }
+  }
+  }
+
+  .section-sided:nth-of-type(odd){
+    .sided-wrapper{
+    flex-direction: column;
+    .image-wrapper{
+      width:100%;
+    }
+    .caption-wrapper{
+      flex: 0 0 100%;
+      .caption{
+        left:0;
+        top:20px;
+      }
+    }
+  }
+  }
+}
+
+/*=====  End of Section  ======*/
 
 /*=========================================
 =            Center by Flexbox            =

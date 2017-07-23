@@ -87,8 +87,25 @@ gulp.task('imagemin', function(){
         .pipe(gulp.dest('dist/image/'));
 });
 
+gulp.task('lib-js', function(){
+    return gulp.src([
+        'node_modules/fullpage.js/dist/jquery.fullpage.min.js',
+        ])
+        .pipe(gulp.dest('dist/js/'));
+});
+
+
+gulp.task('lib-css', function(){
+    return gulp.src([
+        'node_modules/fullpage.js/dist/jquery.fullpage.min.css'
+        ])
+        .pipe(gulp.dest('dist/css/'));
+});
+
+gulp.task('lib', ['lib-js','lib-css'], function(){});
+
 // Static Server + watching scss/html files
-gulp.task('serve', ['babel', 'sass'], function() {
+gulp.task('serve', ['lib', 'babel', 'sass'], function() {
 
     browserSync.init({
         server: "./"

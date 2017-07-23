@@ -6,6 +6,32 @@ html,body,p,div,a{
   font-family: $font-family;
 }
 
+/*=========================================
+=            Center by Flexbox            =
+=========================================*/
+
+.aligner{
+  display:flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.aligner-item {
+  max-width: 90%;
+}
+.aligner-item-top {
+  align-self: flex-start;
+}
+.aligner-item-bottom {
+  align-self: flex-end;
+}
+
+/*=====  End of Center by Flexbox  ======*/
+
+
+/*===============================
+=            Overlay            =
+===============================*/
 
 .overlay{
   opacity:0;
@@ -21,3 +47,4 @@ html,body,p,div,a{
   color:white;
   z-index:1000;
 }
+/*=====  End of Overlay  ======*/

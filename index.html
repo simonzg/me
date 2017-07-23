@@ -1,56 +1,109 @@
 <html>
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Styles -->
-    <link rel="stylesheet" href="dist/css/app.css">
-    <!-- End of Styles -->
-  </head>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="dist/css/app.css">
+</head>
 
-  <body>
+<body>
+<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" href="#">Navbar</a>
 
-    <div class="container">
-
-      <div class="row">
-        <div class="col-sm-8 offset-sm-2 col-md-6 offset-md-3 text-center">
-          <a id='overlay-open-btn' href='#'>X</a>
-          <h1>Jessy</h1>
-          <p>
-            <span>UI/UX Designer</span>
-            <span>San Jose, CA</span>
-          </p>
-          <p>
-            I’M A UI/UX Designer living in San Jose. With a background in digital designing and photography, my strength lies in website and mobile application.
-          </p>
-
-          <a href="portfolio.html">VIEW RESUME</a>
-          <p>
-            <img src="dist/image/portrait.png" >
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <div class="overlay">
-    <div class="container text-center">
-    <ul>
-      <li>
-        <a id='overlay-close-btn' href="#">x</a>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
       </li>
-      <li>
-        <a href="#">Link 1</a>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
       </li>
-      <li>
-        <a href="#">Link 2</a>
-      </li>
-      <li>
-        <a href="#">Link 3</a>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#">Disabled</a>
       </li>
     </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="text" placeholder="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
   </div>
-    </div>
+</nav>
 
-    <!-- Scripts -->
-    <script src='dist/js/app.js'></script>
-    <!-- End of Scripts -->
-  </body>
+  <div class="container">
+  <div class="aligner" style='height:100%'>
+  <div class="aligner-item">
+
+      <img src="dist/image/hello.png" class='img-fluid'>
+      <div>
+        I'm Jessy, focus on Branding, UI&amp;UX Designing.
+      </div>
+      <div>
+        See some of my latest project below.
+      </div>
+  </div>
+  </div>
+
+  <div class="row mt-100">
+    <div class="col-sm-5">
+      <div class="float-right">
+        <h2>Seagull Studio</h2>
+        <div>Product and UI Design</div>
+        <div>Application for online printing</div>
+        <a href="#">See Details</a>
+      </div>
+    </div>
+    <div class="col-sm-7">
+      <img src="dist/image/ss-cover.jpg" alt="" class="img-fluid">
+    </div>
+  </div>
+
+
+  <div class="row mt-100">
+    <div class="col-sm-7">
+      <img src="dist/image/mcd-cover.jpg" alt="" class="img-fluid">
+    </div>
+    <div class="col-sm-5">
+      <div class="float-left">
+        <h2>McDonald's China</h2>
+        <div>UI Design, Responsive website</div>
+        <a href="#">See Details</a>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="row mt-100">
+    <div class="col-sm-5">
+      <div class="float-right">
+        <h2>More Studio</h2>
+        <div>UI Design, Responsive Web</div>
+        <a href="#">See Details</a>
+      </div>
+    </div>
+    <div class="col-sm-7">
+      <img src="dist/image/more-cover.jpg" alt="" class="img-fluid">
+    </div>
+  </div>
+
+  <div class="row mt-100">
+    <div class="col-sm-7">
+      <img src="dist/image/artfin-cover.jpg" alt="" class="img-fluid">
+    </div>
+    <div class="col-sm-5">
+      <div class="float-left">
+        <h2>Art Fin</h2>
+        <div>UI &amp; UX Design</div>
+        <div>Navigation Application for Art Exhibition</div>
+        <a href="#">See Details</a>
+      </div>
+    </div>
+  </div>
+
+
+
+</div>
+
+<script src='dist/js/app.js'></script>
+</body>
 </html>

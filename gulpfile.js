@@ -1,14 +1,66 @@
 var gulp         = require('gulp');
 var browserSync  = require('browser-sync').create();
-var sass         = require('gulp-sass');
+var gutil        = require('gulp-util');
 var plumber      = require('gulp-plumber');
 var imagemin     = require('gulp-imagemin');
+
+// Sass & minify
+var sass         = require('gulp-sass');
 var autoprefixer = require('gulp-autoprefixer');
+var csso         = require('gulp-csso');
 var sourcemaps   = require('gulp-sourcemaps');
+
+// Babel / Browserify / Uglify
+var buffer       = require('vinyl-buffer');
+var uglify       = require('gulp-uglify');
+var rename       = require('gulp-rename');
+var source       = require('vinyl-source-stream');
+var babelify     = require('babelify');
+var watchify     = require('watchify');
+var exorcist     = require('exorcist');
+var browserify   = require('browserify');
+
 // autoprefixer options
 var autoprefixerOptions = {
   browsers: ['last 2 versions', '> 5%', 'Firefox ESR']
 };
+
+// Watchify args contains necessary cache options to achieve fast incremental bundles.
+// See watchify readme for details. Adding debug true for source-map generation.
+watchify.args.debug = true;
+// Input file.
+var bundler = watchify(browserify('src/babel/app.js', watchify.args));
+
+// Babel transform
+bundler.transform("babelify", {presets: ["es2015"]});
+
+// On updates recompile
+bundler.on('update', bundle);
+
+function bundle() {
+
+    gutil.log('Compiling JS...');
+
+    return bundler.bundle()
+        .on('error', function (err) {
+            gutil.log(err.message);
+            browserSync.notify("Browserify Error!");
+            this.emit("end");
+        })
+        .pipe(source('app.js'))
+        .pipe(buffer())
+        .pipe(gulp.dest('dist/js/'))
+        .pipe(rename({suffix:'.min'}))
+        .pipe(uglify())
+        .pipe(gulp.dest('dist/js/'))
+        .pipe(browserSync.stream({once: true}))
+        .on('end', function(){ gutil.log(gutil.colors.green("Successful JS Bundle."))});
+}
+
+// Compile babel into browserified
+gulp.task('babel', function () {
+    return bundle();
+});
 
 // Compile sass into CSS & auto-inject into browsers
 gulp.task('sass', function() {
@@ -19,16 +71,13 @@ gulp.task('sass', function() {
         .pipe(sourcemaps.write())
         .pipe(autoprefixer(autoprefixerOptions))
         .pipe(gulp.dest("dist/css/"))
-        .pipe(browserSync.stream());
+        .pipe(rename({suffix: '.min'}))
+        .pipe(csso())
+        .pipe(gulp.dest("dist/css/"))
+        .pipe(browserSync.stream())
+        .on('end', function(){ gutil.log(gutil.colors.green("Successful CSS Generation."))});
 });
 
-// Move the javascript files into our /js folder
-gulp.task('js', function() {
-    return gulp.src(['node_modules/bootstrap/dist/js/bootstrap.min.js', 'node_modules/jquery/dist/jquery.min.js', 'node_modules/tether/dist/js/tether.min.js'])
-        .pipe(plumber())
-        .pipe(gulp.dest("dist/js/"))
-        .pipe(browserSync.stream());
-});
 
 // Minify PNG / JPEG ...
 gulp.task('imagemin', function(){
@@ -39,7 +88,7 @@ gulp.task('imagemin', function(){
 });
 
 // Static Server + watching scss/html files
-gulp.task('serve', ['sass'], function() {
+gulp.task('serve', ['babel', 'sass'], function() {
 
     browserSync.init({
         server: "./"
@@ -49,4 +98,4 @@ gulp.task('serve', ['sass'], function() {
     gulp.watch("*.html").on('change', browserSync.reload);
 });
 
-gulp.task('default', ['js','serve']);
+gulp.task('default', ['serve']);

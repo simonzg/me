@@ -3,18 +3,24 @@ window.jQuery = window.$ = $;
 global.Tether = require('tether');
 require('bootstrap');
 
-/*======================================
-=            Ready Function            =
-======================================*/
-$(()=>{
-  $('#fullpage').fullpage();
-  // $('.section').attr('style', 'height:100%');
-  // $('.section .fp-tableCell').removeAttr('style');
-})
-// $(window).resize(()=>{
-//   $('.section, .section .fp-tableCell').attr('style', 'height:'+window.innerHeight+'px');
-// })
-/*=====  End of Ready Function  ======*/
+/*============================================================
+=            Mouse In/Out/Click for project image            =
+============================================================*/
+
+$('.sided-wrapper .image-wrapper').mouseenter((e)=>{
+  var link = $(e.target).parent().parent().find('.detail-link');
+  link.addClass('active');
+});
+$('.sided-wrapper .image-wrapper').mouseout((e)=>{
+  var link = $(e.target).parent().parent().find('.detail-link');
+  link.removeClass('active');
+});
+$('.sided-wrapper .image-wrapper').click((e)=>{
+  var link = $(e.target).parent().parent().find('.detail-link');
+  window.location.href=link.attr('href');
+});
+/*=====  End of Mouse In/Out/Click for project image  ======*/
+
 
 
 

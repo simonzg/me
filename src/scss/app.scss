@@ -130,6 +130,9 @@ img.zoom-in:hover {
     // background:rgba(255,255,255,0.8);
     padding:16px 20px;
   }
+  .image-wrapper:hover, .image-wrapper *:hover{
+    cursor: hand;
+  }
 }
 .section-sided:nth-of-type(even){
 .sided-wrapper{
@@ -252,3 +255,33 @@ img.zoom-in:hover {
   z-index:1000;
 }
 /*=====  End of Overlay  ======*/
+
+/*=========================================
+=            Detail Link Arrow            =
+=========================================*/
+
+@keyframes move-out{
+  from {right:20px; opacity:0;}
+  to {right:0px; opacity:1;}
+}
+.detail-link{
+  padding-right: 30px;
+  position: relative;
+
+  &::after{
+    position: absolute;
+    content: '→';
+    top:-3px;
+    opacity:0;
+  }
+
+  &:hover, &.active{
+    &::after{
+    animation: move-out 0.6s ease-out forwards;
+    }
+  }
+}
+
+
+
+/*=====  End of Detail Link Arrow  ======*/

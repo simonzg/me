@@ -6,6 +6,13 @@ html,body,p,div,a{
   font-family: $font-family;
   color:$font-dark;
 }
+body{
+  background-image: url('/dist/image/bg.png');
+  background-size:     70%;                      /* <------ */
+  background-repeat:    repeat-y;
+  background-position: center center;              /* optional, center the image */
+}
+
 p{
   margin-bottom: 5px !important;
 }
@@ -44,6 +51,64 @@ p{
     margin:0 auto !important;
   }
 }
+/*======================================
+=            Link Animation            =
+======================================*/
+// Colors
+$colors: (
+  'green': $live-green,
+  'purple': $live-purple,
+  'blue': $live-cyan,
+);
+
+
+.animated-link {
+  display: inline-block;
+  overflow: hidden;
+  position: relative;
+  text-decoration: none;
+  text-shadow:
+    0 0 map_get($colors, 'black'),
+    .08em 0 0 #fff,
+    0 0,
+    -.08em 0 0 #fff;
+  vertical-align: bottom;
+
+  &:hover, &.active{
+    text-decoration: none;
+  }
+  &:hover:after , &.active:after{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height:2px;
+    width: 400%;
+    z-index: -1;
+    text-decoration: none;
+    animation: underline-gradient 6s linear infinite;
+    background-image: linear-gradient(
+      90deg,
+      rgba( map_get($colors, 'purple'), 0.8) 15%,
+      rgba( map_get($colors, 'green'), 0.6) 35%,
+      rgba( map_get($colors, 'blue'), 0.6) 60%,
+      rgba( map_get($colors, 'purple'), 0.8) 85%
+    );
+  }
+}
+
+@keyframes underline-gradient {
+  0%{
+    transform: translate3d(0%, 0%, 0);
+  }
+  100%{
+    transform: translate3d(-75%, 0%, 0);
+  }
+}
+
+
+/*=====  End of Link Animation  ======*/
+
 /*=========================================
 =            Zoom In Animation            =
 =========================================*/
@@ -110,7 +175,6 @@ img.zoom-in:hover {
     font-size:36px;
     font-weight: bold;
     font-family: 'Roboto';
-    margin-bottom: 25px;
   }
   .large{
     font-size: 26px;
@@ -142,15 +206,15 @@ img.zoom-in:hover {
   }
 }
 #section-2{
-  background:#fef7f7;
-  .image-wrapper{
+  background-color: rgba(220, 200, 200, 0.2);
+      .image-wrapper{
     border-image: linear-gradient(to bottom right, $live-purple 0%, $live-red 50%, $live-yellow 100%);
     border-image-slice: 1;
   }
 }
 
 #section-3{
-  background:#fefef7;
+  background-color: rgba(200, 220, 200, 0.2);
   .image-wrapper{
     border-image: linear-gradient(to bottom right, $live-green 0%, $live-cyan 80%);
     border-image-slice: 1;
@@ -158,14 +222,14 @@ img.zoom-in:hover {
 }
 
 #section-4{
-  background:#f7f7fe;
+  background-color: rgba(200, 200, 220, 0.2);
   .image-wrapper{
     border-image: linear-gradient(to bottom right, $live-purple 0%, $live-cyan 80%);
     border-image-slice: 1;
   }
 }
 #section-5{
-  background:#f7fef7;
+  background-color: rgba(200, 220, 200, 0.2);
   .image-wrapper{
     border-image: linear-gradient(to bottom right,  #cddee4 20%, $live-cyan 100%);
     border-image-slice: 1;
@@ -174,7 +238,7 @@ img.zoom-in:hover {
 .section-sided{
   .caption{
     // background:rgba(255,255,255,0.8);
-    padding:16px 20px;
+    padding:0px 20px;
   }
   .image-wrapper{
     border-width: 8px;
@@ -316,26 +380,37 @@ img.zoom-in:hover {
   to {right:0px; opacity:1;}
 }
 .detail-link{
+  margin-top: 30px;
   padding-right: 30px;
   position: relative;
+  @extend .animated-link;
 
-  &::after{
+  &::before{
     position: absolute;
     content: '→';
-    top:-3px;
+    top:0px;
     opacity:0;
   }
 
   &:hover, &.active{
-    &::after{
+    color: lighten($font-dark, 20%);
+    &::before{
       animation: move-out 0.6s ease-out forwards;
     }
-    color: $link-hover;
-    cursor: hand;
-    text-decoration: none;
+    // color: $link-hover;
+    // cursor: hand;
+    // text-decoration: none;
   }
 }
 
 
 
 /*=====  End of Detail Link Arrow  ======*/
+
+
+.foot-nav{
+  padding-bottom: 20px;
+  display:flex;
+  flex-direction: row;
+  justify-content:space-between;
+}

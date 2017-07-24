@@ -9,11 +9,11 @@ require('bootstrap');
 =            Mouse In/Out/Click for project image            =
 ============================================================*/
 
-$('.sided-wrapper .image-wrapper').mouseenter((e)=>{
+$('.sided-wrapper .image-wrapper img').mouseenter((e)=>{
   var link = $(e.target).parent().parent().find('.detail-link');
   link.addClass('active');
 });
-$('.sided-wrapper .image-wrapper').mouseout((e)=>{
+$('.sided-wrapper .image-wrapper img').mouseout((e)=>{
   var link = $(e.target).parent().parent().find('.detail-link');
   link.removeClass('active');
 });

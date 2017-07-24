@@ -4,7 +4,7 @@
 
 html,body,p,div,a{
   font-family: $font-family;
-  color:#2c3e50;
+  color:$font-dark;
 }
 p{
   margin-bottom: 5px !important;
@@ -17,7 +17,7 @@ p{
 }
 .bold{
   font-weight: bold;
-  color:#444 !important;
+  color:$font-dark !important;
 }
 // .nav-link{
 //   padding-left: 10px;
@@ -102,7 +102,6 @@ img.zoom-in:hover {
 
 .section {
   *{
-    color:#2c3e50;
     font-size:18px;
     font-family: 'Lato';
   }
@@ -123,16 +122,13 @@ img.zoom-in:hover {
   a{
     font-weight: bold;
     text-transform: uppercase;
-    &:hover{
-      color: #1b3dcc;
-      cursor: hand;
-      text-decoration: none;
-    }
+
   }
 
 }
 
 #section-1 {
+  background: #f5fef7;
   *{
     font-size:22px;
   }
@@ -146,23 +142,44 @@ img.zoom-in:hover {
   }
 }
 #section-2{
-  background:#faf7f7;
+  background:#fef7f7;
+  .image-wrapper{
+    border-image: linear-gradient(to bottom right, $live-purple 0%, $live-red 50%, $live-yellow 100%);
+    border-image-slice: 1;
+  }
 }
 
 #section-3{
-  background:#fafaf7;
+  background:#fefef7;
+  .image-wrapper{
+    border-image: linear-gradient(to bottom right, $live-green 0%, $live-cyan 80%);
+    border-image-slice: 1;
+  }
 }
 
 #section-4{
-  background:#f7f7fa;
+  background:#f7f7fe;
+  .image-wrapper{
+    border-image: linear-gradient(to bottom right, $live-purple 0%, $live-cyan 80%);
+    border-image-slice: 1;
+  }
 }
 #section-5{
-  background:#f7faf7;
+  background:#f7fef7;
+  .image-wrapper{
+    border-image: linear-gradient(to bottom right,  #cddee4 20%, $live-cyan 100%);
+    border-image-slice: 1;
+  }
 }
 .section-sided{
   .caption{
     // background:rgba(255,255,255,0.8);
     padding:16px 20px;
+  }
+  .image-wrapper{
+    border-width: 8px;
+    border-style: solid;
+    background-image: url('/dist/image/bg.png');
   }
   .image-wrapper:hover, .image-wrapper *:hover{
     cursor: hand;
@@ -174,11 +191,11 @@ img.zoom-in:hover {
   flex:1;
   .image-wrapper{
     flex:1;
-    width:70%;
+    width:60%;
     overflow:hidden;
   }
   .caption-wrapper{
-    flex: 0 0 30%;
+    flex: 0 0 40%;
     position: relative;
     order:-1;
     .caption{
@@ -197,11 +214,11 @@ img.zoom-in:hover {
   flex:1;
   .image-wrapper{
     flex:1;
-    width:70%;
+    width:60%;
     overflow:hidden;
   }
   .caption-wrapper{
-    flex: 0 0 30%;
+    flex: 0 0 40%;
     position:relative;
     .caption{
       position: absolute;
@@ -311,8 +328,11 @@ img.zoom-in:hover {
 
   &:hover, &.active{
     &::after{
-    animation: move-out 0.6s ease-out forwards;
+      animation: move-out 0.6s ease-out forwards;
     }
+    color: $link-hover;
+    cursor: hand;
+    text-decoration: none;
   }
 }
 

@@ -69,30 +69,28 @@ img.zoom-in:hover {
 
 .gradient-bg{
   background: linear-gradient(123deg, #62a392, #b65437, #7e6bca);
-background-size: 600% 600%;
+  background-size: 600% 600%;
 
--webkit-animation: gradient-change 3s ease infinite;
--moz-animation: gradient-change 3s ease infinite;
-animation: gradient-change 3s ease infinite;
+  -webkit-animation: gradient-change 3s ease infinite;
+  -moz-animation: gradient-change 3s ease infinite;
+  animation: gradient-change 3s ease infinite;
 
-@-webkit-keyframes gradient-change {
+  @-webkit-keyframes gradient-change {
     0%{background-position:7% 0%}
     50%{background-position:94% 100%}
     100%{background-position:7% 0%}
-}
-@-moz-keyframes gradient-change {
+  }
+  @-moz-keyframes gradient-change {
     0%{background-position:7% 0%}
     50%{background-position:94% 100%}
     100%{background-position:7% 0%}
-}
-@keyframes gradient-change {
+  }
+  @keyframes gradient-change {
     0%{background-position:7% 0%}
     50%{background-position:94% 100%}
     100%{background-position:7% 0%}
+  }
 }
-}
-
-
 /*=====  End of Gradient Animation  ======*/
 
 

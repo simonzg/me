@@ -3,6 +3,8 @@ window.jQuery = window.$ = $;
 global.Tether = require('tether');
 require('bootstrap');
 
+
+
 /*============================================================
 =            Mouse In/Out/Click for project image            =
 ============================================================*/

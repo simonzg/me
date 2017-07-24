@@ -1,5 +1,6 @@
 @import "config";
 @import "utils";
+@import "font";
 @import "bootstrap-customized";
 
 html,body,p,div,a{
@@ -408,9 +409,54 @@ img.zoom-in:hover {
 /*=====  End of Detail Link Arrow  ======*/
 
 
+/*==============================
+=            Footer            =
+==============================*/
 .foot-nav{
-  padding-bottom: 20px;
   display:flex;
   flex-direction: row;
   justify-content:space-between;
 }
+
+.footer{
+  border-top: 1px solid #efefef;
+  padding: 15px 0 20px 0;
+  *{
+    color:#95a5a6;
+    font-size:14px;
+  }
+}
+.icon-heart{
+  color:#FB565E;
+}
+/*=====  End of Footer  ======*/
+
+
+
+/*================================
+=            Overview            =
+================================*/
+.project-overview{
+  margin-top: 80px;
+  padding-left: 40px;
+  padding-right: 40px;
+  .title{
+    font-weight: bold;
+  }
+  .section-name{
+    font-family: 'Roboto';
+    margin-top: 30px;
+    font-size:20px;
+    padding-bottom: 25px;
+    position: relative;
+
+  }
+  .section-body{
+    padding: 20px 40px;
+    // background:#f5f5f5;
+    margin-top: 20px;
+    line-height: 24px;
+    font-size:16px;
+  }
+}
+/*=====  End of Overview  ======*/

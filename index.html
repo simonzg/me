@@ -9,6 +9,7 @@
 </head>
 
 <body>
+  <div class="overlay" ></div>
   <nav class='fixed-top-nav'>
     <div class="container clearfix">
       <ul class="nav-wrapper float-right">
@@ -138,6 +139,7 @@
 <script>
   $(function(){
     $('#fullpage').fullpage();
+    $('.overlay').addClass('fadeout');
   })
 </script>
 </body>

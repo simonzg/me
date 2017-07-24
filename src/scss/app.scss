@@ -4,6 +4,7 @@
 
 html,body,p,div,a{
   font-family: $font-family;
+  color:#2c3e50;
 }
 p{
   margin-bottom: 5px !important;
@@ -18,12 +19,12 @@ p{
   font-weight: bold;
   color:#444 !important;
 }
-.nav-link{
-  padding-left: 10px;
-  padding-right: 10px;
-}
+// .nav-link{
+//   padding-left: 10px;
+//   padding-right: 10px;
+// }
 .nav-wrapper{
-  padding-top: 8px;
+  padding-top: 20px;
   li{
     list-style: none;
     display:inline-block;
@@ -33,6 +34,19 @@ p{
   }
 }
 
+.fixed-top-nav{
+  position: fixed;
+  top:0;
+  left:0;
+  width:100%;
+  z-index:1000;
+  .container{
+    margin:0 auto !important;
+  }
+}
+/*=========================================
+=            Zoom In Animation            =
+=========================================*/
 img.zoom-in {
   -webkit-transform: scale(1);
   transform: scale(1);
@@ -43,6 +57,10 @@ img.zoom-in:hover {
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
 }
+/*=====  End of Zoom In Animation  ======*/
+
+
+
 
 /*===============================
 =            Section            =
@@ -50,12 +68,16 @@ img.zoom-in:hover {
 
 .section {
   *{
-    font-size:20px;
+    color:#2c3e50;
+    font-size:18px;
+    font-family: 'Lato';
   }
 
   .title{
-    font-size:34px;
+    font-size:36px;
     font-weight: bold;
+    font-family: 'Roboto';
+    margin-bottom: 25px;
   }
   .large{
     font-size: 26px;
@@ -64,32 +86,49 @@ img.zoom-in:hover {
   .small{
     font-size:14px;
   }
+  a{
+    font-weight: bold;
+    text-transform: uppercase;
+    &:hover{
+      color: #1b3dcc;
+      cursor: hand;
+      text-decoration: none;
+    }
+  }
+
 }
 
 #section-1 {
+  *{
+    font-size:22px;
+  }
   .caption{
     padding-left: 12.5%;
     text-align: left;
-    margin-top:20px;
+    margin-top:50px;
+  }
+  p{
+    margin-bottom: 0 !important;
   }
 }
 #section-2{
-  background:#efbabb;
+  background:#faf7f7;
 }
 
 #section-3{
-  background:#faf8e6;
+  background:#fafaf7;
 }
 
 #section-4{
-  background:#a4b0df;
+  background:#f7f7fa;
 }
 #section-5{
-  background:#9ee0d6;
+  background:#f7faf7;
 }
 .section-sided{
   .caption{
     // background:rgba(255,255,255,0.8);
+    padding:16px 20px;
   }
 }
 .section-sided:nth-of-type(even){
@@ -147,8 +186,7 @@ img.zoom-in:hover {
       flex: 0 0 100%;
       order:1;
       .caption{
-        left:0;
-        top:20px;
+        position:static;
       }
     }
   }
@@ -163,8 +201,7 @@ img.zoom-in:hover {
     .caption-wrapper{
       flex: 0 0 100%;
       .caption{
-        left:0;
-        top:20px;
+        position:static;
       }
     }
   }

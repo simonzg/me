@@ -1,11 +1,15 @@
 @import "config";
 @import "utils";
 @import "font";
-@import "bootstrap-customized";
+@import "bootstrap-partial";
 
 html,body,p,div,a{
   font-family: $font-family;
   color:$font-dark;
+}
+a{
+  text-decoration: none;
+  padding: 3px 0;
 }
 body{
   background-image: url('/dist/image/bg.png');

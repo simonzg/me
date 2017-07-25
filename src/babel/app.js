@@ -1,7 +1,7 @@
 let $ = require('jquery');
 window.jQuery = window.$ = $;
-global.Tether = require('tether');
-require('bootstrap');
+// global.Tether = require('tether');
+// require('bootstrap');
 
 
 

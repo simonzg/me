@@ -295,6 +295,21 @@ img.zoom-in:hover {
 }
 
 @media screen and (max-width: 768px) {
+  .section-sided{
+    *{
+      font-size:16px;
+    }
+    .title{
+      margin-top: 30px;
+      font-size:24px;
+    }
+  }
+
+  .detail-link{
+    font-size:16px;
+    margin-top: 20px !important;
+  }
+
   .section-sided:nth-of-type(even){
     .sided-wrapper{
     flex-direction: column;
@@ -369,6 +384,7 @@ img.zoom-in:hover {
 .overlay.fadeout{
   animation: fadeout 2s;
   opacity:0;
+  z-index:-1;
 }
 
 @keyframes fadeout{
@@ -434,6 +450,11 @@ img.zoom-in:hover {
 .icon-heart{
   color:#FB565E;
 }
+@media screen and (max-width: 768px) {
+  .foot-nav{
+    flex-direction:column;
+  }
+}
 /*=====  End of Footer  ======*/
 
 
@@ -462,6 +483,18 @@ img.zoom-in:hover {
     margin-top: 20px;
     line-height: 24px;
     font-size:16px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .project-overview, .intro{
+    padding:0 10px;
+    .title{
+      font-size:24px;
+    }
+    .section-body{
+      padding: 0;
+    }
   }
 }
 /*=====  End of Overview  ======*/

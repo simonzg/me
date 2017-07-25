@@ -138,7 +138,9 @@
 <script src='dist/js/jquery.fullpage.min.js'></script>
 <script>
   $(function(){
-    $('#fullpage').fullpage();
+    $('#fullpage').fullpage({
+      responsiveWidth: 768
+    });
     $('.overlay').addClass('fadeout');
   })
 </script>

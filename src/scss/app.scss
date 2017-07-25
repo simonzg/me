@@ -207,6 +207,7 @@ img.zoom-in:hover {
     margin-top:50px;
   }
   p{
+    margin-top: 5px !important;
     margin-bottom: 0 !important;
   }
 }
@@ -395,6 +396,12 @@ img.zoom-in:hover {
   from {opacity:1;}
   to {opacity:0;}
 }
+
+.overlay-menu{
+  @extend .overlay;
+  width:0;
+  transition: 0.6s;
+}
 /*=====  End of Overlay  ======*/
 
 /*=========================================
@@ -472,6 +479,7 @@ img.zoom-in:hover {
   padding-right: 40px;
   .title{
     font-weight: bold;
+    padding: 10px 40px 0 40px;
   }
   .section-name{
     font-family: 'Roboto';
@@ -482,7 +490,7 @@ img.zoom-in:hover {
 
   }
   .section-body{
-    padding: 20px 40px;
+    padding: 0px 40px 20px 40px;
     // background:#f5f5f5;
     margin-top: 20px;
     line-height: 24px;
@@ -494,6 +502,7 @@ img.zoom-in:hover {
   .project-overview, .intro{
     padding:0 10px;
     .title{
+      padding: 0;
       font-size:24px;
     }
     .section-body{

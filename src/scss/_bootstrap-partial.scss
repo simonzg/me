@@ -84,3 +84,16 @@
   content: "";
   clear: both;
 }
+
+@media (max-width: 767px) {
+  .hidden-sm-down {
+    display: none !important;
+  }
+}
+
+@media (min-width: 767px) {
+  .hidden-sm-up {
+    display: none !important;
+  }
+}
+

@@ -50,3 +50,19 @@ $('#overlay-close-btn').click(() => {
 /*=====  End of Overlay  ======*/
 
 
+
+/*===============================================
+=            Overlay Menu Open/Close            =
+===============================================*/
+
+$('#open-menu-btn').click(()=>{
+  $('.overlay-menu').css('display','block').css('width','100%');
+});
+
+$('#close-menu-btn').click(()=>{
+  $('.overlay-menu').css('display','block').css('width','0');
+});
+
+
+
+/*=====  End of Overlay Menu Open/Close  ======*/

@@ -1,8 +1,9 @@
 let $ = require('jquery');
+let ScrollReveal = require('ScrollReveal');
 window.jQuery = window.$ = $;
 // global.Tether = require('tether');
 // require('bootstrap');
-
+window.sr = ScrollReveal();
 
 
 /*============================================================
@@ -66,3 +67,25 @@ $('#close-menu-btn').click(()=>{
 
 
 /*=====  End of Overlay Menu Open/Close  ======*/
+
+
+$(()=>{
+  /*========================================
+  =            Scroll Reveal           =
+  ========================================*/
+  sr.reveal('.detail-img', { reset: false, origin: 'bottom', distance: '50px', scale: 0.97, duration: 300, });
+  sr.reveal('.thumbnail-img', { reset: false, origin: 'bottom', distance: '20px', scale: 1.33, duration: 1000, });
+  /*=====  End of Scroll Reveal  ======*/
+
+
+  /*=============================================
+  =            Hide Scroll Animation            =
+  =============================================*/
+  $(window).scroll(()=>{
+    $(".scroll").css("opacity", 1 - $(window).scrollTop() / 150);
+  })
+  /*=====  End of Hide Scroll Animation  ======*/
+
+
+})
+

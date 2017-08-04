@@ -1,6 +1,13 @@
-@import url('https://fonts.googleapis.com/css?family=Lato:300|Roboto|Roboto:900');
+@import url('https://fonts.googleapis.com/css?family=Lato:200,300|Roboto|Roboto:900');
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300');
 
 $font-family: 'Roboto', 'Lato', sans-serif;
+$font-light: 'Source Sans Pro', serif;
+$font-bold: 'Lato', 'Lato', sans-serif;
+
+$small: 12px;
+$medium: 15px;
+$large: 20px;
 
 $font-dark: #2c3e50;
 $link-hover: #1b3dcc;

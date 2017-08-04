@@ -20,6 +20,15 @@ var watchify     = require('watchify');
 var exorcist     = require('exorcist');
 var browserify   = require('browserify');
 
+var pug = require('gulp-pug');
+
+gulp.task('pug', function buildHTML() {
+  return gulp.src(['src/pug/*.pug'])
+  .pipe(plumber())
+  .pipe(pug({}))
+  .pipe(gulp.dest(''))
+});
+
 // autoprefixer options
 var autoprefixerOptions = {
   browsers: ['last 2 versions', '> 5%', 'Firefox ESR']
@@ -105,13 +114,15 @@ gulp.task('lib-css', function(){
 gulp.task('lib', ['lib-js','lib-css'], function(){});
 
 // Static Server + watching scss/html files
-gulp.task('serve', ['lib', 'babel', 'sass'], function() {
+gulp.task('serve', ['pug', 'lib', 'babel', 'sass'], function() {
 
     browserSync.init({
         server: "./"
     });
 
     gulp.watch(['src/scss/*.scss'], ['sass']);
+    gulp.watch(['src/pug/*.pug'], ['pug']);
+    gulp.watch(['src/pug/**/*.pug'], ['pug']);
     gulp.watch("*.html").on('change', browserSync.reload);
 });
 

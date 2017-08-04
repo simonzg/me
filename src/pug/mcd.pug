@@ -1,0 +1,33 @@
+extends layout/layout.pug
+
+block head
+  - var project = 'mcd'
+  - var project_fullname = "McDonald's China"
+
+  - var prev = 'more'
+  - var next = 'artfin'
+
+  - var imgIndices = '01,02,03,04,05,06'.split(',')
+
+
+  title #{project_fullname} | Xin Zhang
+
+block content
+  div(class=`project-${project}-img`)
+
+  section.container.pt-60.pb-60
+    .detail-text
+      .project-name #{project_fullname}
+      .col-container
+        .col.col-60
+          .body(style='margin-top:0;') When redesigning this project, to meet with the trend of tablets and smartphones coming to brow website, I changed the previous MCD web towards irregular layers and ultra-modern design. As there is mass of information need to be displayed, the key task is to build the layout easy for reading and convince customers to remain on the page. Meanwhile, keeping clean to show the key content.
+
+        .col
+          .title Category
+          .body Web Design
+
+          .title.mt-10 Role
+          .body Visual Designer
+    each index in imgIndices
+      .detail-img-wrapper
+        img.detail-img(src=`/dist/image/${project}/detail-${project}-${index}.jpg`)

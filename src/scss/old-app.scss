@@ -1,0 +1,60 @@
+@import "config";
+@import "utils";
+@import "font";
+@import "bootstrap-partial";
+
+html,body,p,div,a{
+  font-family: $font-family;
+  color:$font-dark;
+}
+a{
+  text-decoration: none;
+  padding: 3px 0;
+}
+body,html{margin:0;padding:0;}
+body {
+position:relative;
+height:100%;
+-moz-osx-font-smoothing:grayscale;
+-webkit-font-smoothing:antialiased;
+overflow-x:hidden
+}
+
+p{
+  margin-bottom: 5px !important;
+}
+.container{
+  margin: 0 auto !important;
+}
+.bg-transparent{
+  background:transparent;
+}
+.bold{
+  font-weight: bold;
+  color:$font-dark !important;
+}
+// .nav-link{
+//   padding-left: 10px;
+//   padding-right: 10px;
+// }
+.nav-wrapper{
+  padding-top: 20px;
+  li{
+    list-style: none;
+    display:inline-block;
+    a{
+      padding:8px 15px;
+    }
+  }
+}
+
+.fixed-top-nav{
+  position: fixed;
+  top:0;
+  left:0;
+  width:100%;
+  z-index:1000;
+  .container{
+    margin:0 auto !important;
+  }
+}

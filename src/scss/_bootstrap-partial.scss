@@ -4,61 +4,38 @@
   margin-right: auto;
   padding-right: 15px;
   padding-left: 15px;
+  max-width: 100%;
 }
 
 @media (min-width: 576px) {
   .container {
     padding-right: 15px;
     padding-left: 15px;
-  }
-}
-
-@media (min-width: 768px) {
-  .container {
-    padding-right: 15px;
-    padding-left: 15px;
-  }
-}
-
-@media (min-width: 992px) {
-  .container {
-    padding-right: 15px;
-    padding-left: 15px;
-  }
-}
-
-@media (min-width: 1200px) {
-  .container {
-    padding-right: 15px;
-    padding-left: 15px;
-  }
-}
-
-@media (min-width: 576px) {
-  .container {
     width: 540px;
-    max-width: 100%;
   }
 }
 
 @media (min-width: 768px) {
   .container {
-    width: 720px;
-    max-width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    width: 700px;
   }
 }
 
 @media (min-width: 992px) {
   .container {
-    width: 960px;
-    max-width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    width: 920px;
   }
 }
 
 @media (min-width: 1200px) {
   .container {
-    width: 1000px;
-    max-width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    width: 1100px;
   }
 }
 
@@ -97,3 +74,83 @@
   }
 }
 
+/*==================================
+=            Two Column            =
+==================================*/
+.col-container{
+  display:flex;
+  flex-direction:row;
+}
+.col{
+  width:47%;
+  display:inline-block;
+}
+.col.col-60{
+  width: 60%;
+  margin-left: 0;
+}
+.col:nth-of-type(even){
+  margin-left: 6%;
+}
+@media (max-width: 800px){
+  .col-container{
+    flex-direction:column !important;
+  }
+  .col, .col.col-60{
+    width:100%;
+    margin-bottom: 20px;
+  }
+  .col:nth-of-type(even){
+    margin-left: 0;
+  }
+}
+/*=====  End of Two Column  ======*/
+
+/*====================================
+=            Column Three (25 - 55 -20)   =
+====================================*/
+
+.col-3 {
+  text-align: left;
+  display: inline-block;
+  padding: 0 15px;
+}
+.col-3:nth-of-type(1){
+  width:calc(25% - 15px);
+  padding: 0;
+  padding-right: 15px;
+}
+.col-3:nth-of-type(2){
+  width:calc(55% - 30px);
+}
+.col-3:nth-of-type(3){
+  width:calc(20% - 30px);
+}
+
+@media (max-width: 767px){
+  .col-3 {
+    padding: 0;
+  }
+  .col-3:nth-of-type(1){
+    width:100% !important;
+  }
+  .col-3:nth-of-type(2){
+    margin-top: 20px;
+    width:100% !important;
+  }
+  .col-3:nth-of-type(3){
+    display:none;
+  }
+}
+@media (max-width: 992px){
+  .col-3:nth-of-type(1){
+    width:25%;
+  }
+  .col-3:nth-of-type(2){
+    width:calc(75% - 30px);
+  }
+  .col-3:nth-of-type(3){
+    display: none;
+  }
+}
+/*=====  End of Column Three  ======*/

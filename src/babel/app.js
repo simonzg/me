@@ -74,7 +74,7 @@ $(()=>{
   =            Scroll Reveal           =
   ========================================*/
   sr.reveal('.detail-img', { reset: false, origin: 'bottom', distance: '50px', scale: 0.97, duration: 300, });
-  sr.reveal('.thumbnail-img', { reset: false, origin: 'bottom', distance: '20px', scale: 1.33, duration: 1000, });
+  sr.reveal('.thumbnail .img-inner', { reset: false, origin: 'bottom', distance: '20px', scale: 1.33, duration: 1000, });
   /*=====  End of Scroll Reveal  ======*/
 
 
@@ -83,7 +83,7 @@ $(()=>{
   =============================================*/
   $(window).scroll(()=>{
     $(".scroll").css("opacity", 1 - $(window).scrollTop() / 150);
-  })
+  }).scroll();
   /*=====  End of Hide Scroll Animation  ======*/
 
 

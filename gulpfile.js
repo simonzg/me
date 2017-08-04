@@ -26,7 +26,7 @@ gulp.task('pug', function buildHTML() {
   return gulp.src(['src/pug/*.pug'])
   .pipe(plumber())
   .pipe(pug({}))
-  .pipe(gulp.dest('dist/html/'))
+  .pipe(gulp.dest(''))
 });
 
 // autoprefixer options

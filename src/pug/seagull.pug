@@ -1,20 +1,19 @@
-//- page-a.pug
 extends layout/layout.pug
 
-
 block head
-  - var project_fullname = 'Seagull Studio'
-  title #{project_fullname} | Xin Zhang
-
-block content
   - var project = 'seagull'
   - var project_fullname = 'Seagull Studio'
 
-  .scroll
-    a(href='#ancre')
-      h5 scroll
+  - var prev = "projects"
+  - var next = "more"
 
+  - var imgIndices = '01,02,03,04,05,06,07,08,09,10,11,12,13,14'.split(',')
+
+  title #{project_fullname} | Xin Zhang
+
+block content
   div(class=`project-${project}-img`)
+
   section.container.pt-60.pb-60
     .detail-text
       .project-name #{project_fullname}
@@ -27,6 +26,6 @@ block content
 
           .title.mt-10 Role
           .body UI/UX Designer, Photographer
-    each index in '01,02,03,04,05,06,07,08,09,10,11,12,13,14'.split(',')
+    each index in imgIndices
       .detail-img-wrapper
         img.detail-img(src=`/dist/image/${project}/detail-${project}-${index}.jpg`)

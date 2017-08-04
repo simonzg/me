@@ -69,6 +69,17 @@ $('#close-menu-btn').click(()=>{
 /*=====  End of Overlay Menu Open/Close  ======*/
 
 
+// Scroll
+$('a[href^="#"]').click(function(){
+ var the_id = $(this).attr("href");
+
+ $('html, body').animate({
+   scrollTop:$(the_id).offset().top
+ }, 'slow');
+ return false;
+});
+
+
 $(()=>{
   /*========================================
   =            Scroll Reveal           =
@@ -83,9 +94,14 @@ $(()=>{
   =============================================*/
   $(window).scroll(()=>{
     $(".scroll").css("opacity", 1 - $(window).scrollTop() / 150);
+    $('.side-nav').css('opacity', $(window).scrollTop() /70);
   }).scroll();
   /*=====  End of Hide Scroll Animation  ======*/
+  $('.thumbnail').click((e)=>{
+    var currentThumbnail = $(e.target).parentsUntil('.col').last();
+    window.location.href = currentThumbnail.data('href');
+  });
 
 
-})
+});
 

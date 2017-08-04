@@ -1,52 +1,31 @@
+- var dataList = []
+- dataList.push({project: "seagull", title: "Seagull Studio", body: 'some descriptive text HERE!'})
+- dataList.push({project: "more", title: "More Studio", body: "some descriptive text HERE!" })
+- dataList.push({project: "mcd", title: "McDonald's China", body: "some descriptive text HERE!" })
+- dataList.push({project: "artfin", title: "Artfin", body: "some descriptive text HERE!" })
+
 div.col-container(style='padding-top:80px;padding-bottom:50px;')
   .col.col-left
-    .thumbnail
-      .img-outer
-        .img-inner
-          img(src='/dist/image/more-cover.jpg')
-      .title Some name
-      .body blah blah blah
-
-    .thumbnail
-      .img-outer
-        .img-inner
-          img(src='/dist/image/artfin-cover.jpg')
-      .title Some name
-      .body blah blah blah
-
-    .thumbnail
-      .img-outer
-        .img-inner
-          img(src='/dist/image/mcdonald-cover.jpg')
-      .title Some name
-      .body blah blah blah
-
-    .thumbnail
-      .img-outer
-        .img-inner
-          img(src='/dist/image/more-cover.jpg')
-      .title Some name
-      .body blah blah blah
+    - for (var i=0; i< dataList.length; i+=2)
+      - var project = dataList[i].project
+      - var title = dataList[i].title
+      - var body = dataList[i].body
+      .thumbnail(data-href=`/${project}.html`)
+        .img-outer
+          .img-inner
+            img(src=`/dist/image/${project}/thumbnail-${project}.jpg`)
+        .title=title
+        .body=body
 
   .col.col-right
-    .thumbnail
-      .img-outer
-        .img-inner
-          img(src='/dist/image/thumbnail-seagull.jpg')
-      .title Some name
-      .body blah blah blah
-
-    .thumbnail
-      .img-outer
-        .img-inner
-          img(src='/dist/image/artfin-cover.jpg')
-      .title Some name
-      .body blah blah blah
-
-    .thumbnail
-      .img-outer
-        .img-inner
-          img(src='/dist/image/mcdonald-cover.jpg')
-      .title Some name
-      .body blah blah blah
+    - for (var i=1; i< dataList.length; i+=2)
+      - var project = dataList[i].project
+      - var title = dataList[i].title
+      - var body = dataList[i].body
+      .thumbnail(data-href=`/${project}.html`)
+        .img-outer
+          .img-inner
+            img(src=`/dist/image/${project}/thumbnail-${project}.jpg`)
+        .title=title
+        .body=body
 

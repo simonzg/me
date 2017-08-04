@@ -2,11 +2,18 @@ html
   head
     meta(name="viewport" content="width=device-width, initial-scale=1.0")
     link(rel="icon" type="image/png" href="/dist/image/favicon.png")
+    - var prev = "About"
+    - var next = "Projects"
     block head
     title Xin Zhang
     link(rel="stylesheet" type='text/css' href='/dist/css/app.min.css')
   body
+    include ../includes/side-nav.pug
     include ../includes/header.pug
+
+    .scroll
+      a(href='#scroll')
+        h5 scroll
     block content
     //- include ../includes/footer.pug
     include ../includes/footer.pug

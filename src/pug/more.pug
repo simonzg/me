@@ -1,0 +1,32 @@
+extends layout/layout.pug
+
+block head
+  - var project = 'more'
+  - var project_fullname = 'More Studio'
+
+  - var prev = 'seagull'
+  - var next = 'mcd'
+
+  - var imgIndices = '01,02,03,04,05,06'.split(',')
+
+  title #{project_fullname} | Xin Zhang
+
+block content
+  div(class=`project-${project}-img`)
+
+  section.container.pt-60.pb-60
+    .detail-text
+      .project-name #{project_fullname}
+      .col-container
+        .col.col-60
+          .body(style='margin-top:0;') More studio is a independent studio committed to cooperate to art projects with artists and museums.To making distinctive personality online showcase and demonstrate different projects directly, leaving white space properly is a way of expressing
+
+        .col
+          .title Category
+          .body Web Design
+
+          .title.mt-10 Role
+          .body Visual Designer
+    each index in imgIndices
+      .detail-img-wrapper
+        img.detail-img(src=`/dist/image/${project}/detail-${project}-${index}.jpg`)

@@ -37,13 +37,27 @@ p{
 //   padding-left: 10px;
 //   padding-right: 10px;
 // }
-.nav-wrapper{
-  padding-top: 20px;
-  li{
-    list-style: none;
-    display:inline-block;
-    a{
-      padding:8px 15px;
+/*==============================
+=            Header            =
+==============================*/
+.header{
+  padding-top: 30px;
+  .nav-brand{
+    font-size: 30px;
+    font-weight: bold;
+    font-family: "Roboto";
+  }
+  .nav-wrapper{
+    margin: 0;
+    li{
+      list-style: none;
+      display:inline-block;
+      a{
+        padding:8px 0;
+      }
+    }
+    li+li{
+      margin-left: 20px;
     }
   }
 }
@@ -58,6 +72,10 @@ p{
     margin:0 auto !important;
   }
 }
+/*=====  End of Header  ======*/
+
+
+
 /*======================================
 =            Link Animation            =
 ======================================*/
@@ -233,11 +251,15 @@ $colors: (
     li{
       display: inline-block;
       list-style-type: none;
-      i.icon{
-        font-size:22px;
-      }
-      a:hover i.icon{
-        color: white;
+      a{
+        i.icon{
+          font-size:20px;
+        }
+        &:hover{
+          i.icon{
+            color: white;
+          }
+        }
       }
     }
     li+li{
@@ -300,7 +322,7 @@ $colors: (
   height:100%;
 }
 
-$bg-list: seagull more mcdonald artfin;
+$bg-list: seagull more mcd artfin;
 @each $name in $bg-list {
   .project-#{$name}-img {
     @extend .fullscreen-bg;
@@ -337,7 +359,7 @@ $bg-list: seagull more mcdonald artfin;
     img{
       width:100%;
       height: auto;
-      transition: transform .3s;
+      transition: transform 1s;
       &:hover{
         transform:scale(1.13);
       }
@@ -357,6 +379,9 @@ $bg-list: seagull more mcdonald artfin;
     margin-top: 2px;
     padding-bottom: 80px;
     font-family: $font-light;
+  }
+  &:hover{
+    cursor: pointer;
   }
 }
 /*=====  End of Parallax  ======*/
@@ -379,22 +404,22 @@ $bg-list: seagull more mcdonald artfin;
 .scroll h5 {
   text-align:center;
   text-decoration:none;
-  color:#000;
-  font-family:'Open Sans',sans-serif;
+  font-family:$font-bold;
+
   font-size:13px;
   font-weight:400;
   padding-bottom:20px;
 }
 
-.scroll :before {
+.scroll:before {
   position:absolute;
-  content:'';
-  top:40px;
+  font-family: "xinzhang-jessy";
+  content: "\6b";
+  right:42%;
   z-index:4;
-  right:48%;
-  width:1px;
-  height:34px;
-  background:#000
+}
+.scroll:before{
+  top:40px;
 }
 
 @keyframes bounce {
@@ -433,3 +458,94 @@ $bg-list: seagull more mcdonald artfin;
 }
 /*=====  End of Detail Text  ======*/
 
+/*========================================
+=            Circle Animation            =
+========================================*/
+$white:          #FFFFFF;
+$black:          #000000;
+$whitesmoke:     #F5F5F5;
+$link-blue:      #2175FF;
+
+.centered-container {
+  background-color: $white;
+  display: inline-flex;
+  padding: 4rem;
+  border-radius: .125rem;
+  border: 1px solid rgba($black, .1);
+  box-shadow: 0 .125rem .25rem rgba($black, .04);
+}
+
+.link {
+  color: $link-blue;
+  cursor: pointer;
+  font-weight: 400;
+  text-decoration: none;
+}
+
+.link--arrowed {
+  display: inline-block;
+  height: 2rem;
+  line-height: 2rem;
+
+  .arrow-icon {
+    position: relative;
+    top: -1px;
+    -webkit-transition: -webkit-transform 0.3s ease;
+    transition: -webkit-transform 0.3s ease;
+    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, -webkit-transform 0.3s ease;
+    vertical-align: middle;
+  }
+
+  .arrow-icon--circle {
+    transition: stroke-dashoffset .3s ease;
+    stroke-dasharray: 95;
+    stroke-dashoffset: 95;
+  }
+
+  &:hover {
+    .arrow-icon {
+      transform: translateX(5px);
+    }
+
+    .arrow-icon--circle {
+      stroke-dashoffset: 0;
+    }
+  }
+}
+
+
+/*=====  End of Circle Animation  ======*/
+
+.side-nav{
+  position: fixed;
+  top:44%;
+  right:-90px;
+  transform: rotate(270deg);
+  ul{
+    width:250px;
+    display: flex;
+    flex-direction: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    li{
+      padding-bottom: 8px;
+      border-bottom:1px solid transparent;
+      a{
+        font-size:14px;
+        &:hover{
+          cursor:pointer;
+        }
+      }
+      &:hover{
+        border-bottom:1px solid $font-dark;
+      }
+    }
+    li+li{
+      margin-left: 40px;
+    }
+
+  }
+}

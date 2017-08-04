@@ -1,0 +1,19 @@
+- var trans = {about: "About", projects: "Projects", seagull: "Seagull Studio", mcd: "McDonald's China", more: "More Studio", artfin: "Artfin"}
+- prev = prev.toLowerCase()
+- next = next.toLowerCase()
+if prev == 'about'
+  - prevLink = '/about.html'
+else
+  - prevLink = `/${prev}.html`
+
+if next == 'projects'
+  - nextLink = '/'
+else
+  - nextLink = `/${next}.html`
+
+nav.side-nav
+  ul
+    li
+      a(href=`${prevLink}`) #{trans[prev]}
+    li
+      a(href=`${nextLink}`) #{trans[next]}

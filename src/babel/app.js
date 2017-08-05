@@ -79,6 +79,39 @@ $('a[href^="#"]').click(function(){
  return false;
 });
 
+var hideLetters = function (){
+ console.log('hideLetters()');
+ var $allLettersExceptS = $('#logo').find('g').filter(':not(:first-child)');
+ var reversedLetters = $allLettersExceptS.get().reverse();
+ var timer = 0;
+
+ $(reversedLetters).each(function(){
+   var $currentLetter = $(this);
+   setTimeout(function(){
+     $currentLetter.animate({'opacity':0}, 300);
+   }, timer);
+
+   timer = timer + 20;
+ });
+};
+
+var showLetters = function(){
+ console.log('showLetters()');
+ var $allLettersExceptS = $('#logo').find('g').filter(':not(:first-child)');
+ console.log($allLettersExceptS);
+
+ var timer = 0;
+
+ $allLettersExceptS.each(function(){
+   var $currentLetter = $(this);
+   setTimeout(function(){
+     $currentLetter.animate({'opacity':1}, 300);
+   }, timer);
+
+   timer = timer + 20;
+ });
+};
+
 
 $(()=>{
   /*========================================
@@ -92,16 +125,27 @@ $(()=>{
   /*=============================================
   =            Hide Scroll Animation            =
   =============================================*/
+  var alreadyScrolled = false;
   $(window).scroll(()=>{
     $(".scroll").css("opacity", 1 - $(window).scrollTop() / 150);
     $('.side-nav').css('opacity', $(window).scrollTop() /70);
-  }).scroll();
+
+    if( $(window).scrollTop() > 0 ){
+      if(alreadyScrolled == false){
+       alreadyScrolled = true;
+       hideLetters();
+     }
+   } else {
+     alreadyScrolled = false;
+     showLetters();
+   }
+
+ }).scroll();
   /*=====  End of Hide Scroll Animation  ======*/
   $('.thumbnail').click((e)=>{
     var currentThumbnail = $(e.target).parentsUntil('.col').last();
     window.location.href = currentThumbnail.data('href');
   });
-
 
 });
 

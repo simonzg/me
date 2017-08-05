@@ -1,7 +1,6 @@
 .container {
+  margin: 0 auto;
   position: relative;
-  margin-left: auto;
-  margin-right: auto;
   padding-right: 15px;
   padding-left: 15px;
   max-width: 100%;
@@ -14,18 +13,26 @@
   max-width: calc(100% - 80px);
 }
 
+@media (max-width: 767px) {
+  .container-wide{
+    padding-left: 15px;
+    padding-right: 15px;
+    max-width: calc(100% - 30px);
+  }
+}
+
 @media (min-width: 576px) {
   .container {
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 30px;
+    padding-left: 30px;
     width: 490px;
   }
 }
 
 @media (min-width: 768px) {
   .container {
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 30px;
+    padding-left: 30px;
     width: 620px;
   }
 }

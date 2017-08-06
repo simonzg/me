@@ -316,18 +316,23 @@ $colors: (
   width:100%;
   height:100%;
 }
-
-@each $name in $project-list {
-  .project-#{$name}-img {
-    @extend .fullscreen-bg;
-    background-image: url(/dist/image/#{$name}/main-#{$name}.jpg);
-  }
-  @media screen and (min-width: 768px){
-    .project-#{$name}-img{
-      background-attachment: fixed;
-    }
+@media screen and (min-width: 768px) {
+  .fullscreen-bg{
+    background-attachment: fixed;
   }
 }
+
+// @each $name in $project-list {
+//   .project-#{$name}-img {
+//     @extend .fullscreen-bg;
+//     background-image: url(/dist/image/#{$name}/main-#{$name}.jpg);
+//   }
+//   @media screen and (min-width: 768px){
+//     .project-#{$name}-img{
+//       background-attachment: fixed;
+//     }
+//   }
+// }
 .project-test-img{
   @extend .fullscreen-bg;
   background-image: url('/dist/image/bg1.jpg');

@@ -1,0 +1,9 @@
+{
+  "name":"summer",
+  "display_name": "Summer Texture",
+  "img_indices": "01,02,03,04,05,06,07",
+  "description": "UPDATE This Description",
+  "category":"UPDATE this category",
+  "role": "UPDATE this role",
+  "intro": "UPDATE this intro"
+}

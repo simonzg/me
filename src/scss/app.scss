@@ -317,8 +317,7 @@ $colors: (
   height:100%;
 }
 
-$bg-list: seagull more mcd artfin live-in-the-real road iceland;
-@each $name in $bg-list {
+@each $name in $project-list {
   .project-#{$name}-img {
     @extend .fullscreen-bg;
     background-image: url(/dist/image/#{$name}/main-#{$name}.jpg);

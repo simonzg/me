@@ -1,0 +1,39 @@
+extends ../layout/layout.pug
+
+
+block head
+  - var cur_index = order.indexOf(name)
+  - var prev = order[ cur_index-1 ]
+  - var next = order[ cur_index+1 ]
+  - var indices = img_indices.split(',')
+
+  title #{display_name} | Xin Zhang
+
+block content
+  div(class=`project-${name}-img`)
+
+  section.container.pt-60.pb-60
+    =order
+    =cur_index
+    =prev
+    =next
+    .detail-text
+      .project-name #{display_name}
+      .col-container
+        .col.col-60
+          .body(style='margin-top:0;')= description
+
+        .col
+          .title Category
+          .body=category
+
+          .title.mt-10 Role
+          .body=role
+    if name == 'live-in-the-real'
+      .embed-container
+        iframe(src="https://player.vimeo.com/video/228435300" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen)
+    each index in indices
+      .detail-img-wrapper
+        img.detail-img(src=`/dist/image/${name}/detail-${name}-${index}.jpg`)
+
+    include ../includes/projects.pug

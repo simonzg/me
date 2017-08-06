@@ -1,3 +1,4 @@
+var fs           = require('fs');
 var gulp         = require('gulp');
 var browserSync  = require('browser-sync').create();
 var gutil        = require('gulp-util');
@@ -21,6 +22,7 @@ var exorcist     = require('exorcist');
 var browserify   = require('browserify');
 
 var pug = require('gulp-pug');
+var data = require('gulp-data');
 
 gulp.task('pug', function buildHTML() {
   return gulp.src(['src/pug/*.pug'])
@@ -29,6 +31,36 @@ gulp.task('pug', function buildHTML() {
   .pipe(gulp.dest(''))
 });
 
+gulp.task('gen-detail', function generateDetailPages(){
+    const folder = 'src/pug/data';
+
+    fs.readdir(folder, (err, files) => {
+      files.forEach(file => {
+        var basename = file.split('.')[0]
+        return gulp.src(['src/pug/template/detail.pug'])
+            .pipe(data(function(file) {
+              var json = require('./src/pug/data/'+basename+'.json');
+              json['order'] = [
+                'projects',
+                'seagull',
+                'mcd',
+                'more',
+                'artfin',
+                'live-in-the-real',
+                'iceland',
+                'road',
+                'summer',
+                'projects'
+              ]
+              return json;
+            }))
+            .pipe(pug({}))
+            .pipe(rename(basename+'.html'))
+            .pipe(gulp.dest(''));
+    });
+  })
+
+})
 // autoprefixer options
 var autoprefixerOptions = {
   browsers: ['last 2 versions', '> 5%', 'Firefox ESR']
@@ -114,7 +146,7 @@ gulp.task('lib-css', function(){
 gulp.task('lib', ['lib-js','lib-css'], function(){});
 
 // Static Server + watching scss/html files
-gulp.task('serve', ['pug', 'lib', 'babel', 'sass'], function() {
+gulp.task('serve', ['pug', 'gen-detail', 'lib', 'babel', 'sass'], function() {
 
     browserSync.init({
         server: "./"
@@ -122,7 +154,7 @@ gulp.task('serve', ['pug', 'lib', 'babel', 'sass'], function() {
 
     gulp.watch(['src/scss/*.scss'], ['sass']);
     gulp.watch(['src/pug/*.pug'], ['pug']);
-    gulp.watch(['src/pug/**/*.pug'], ['pug']);
+    gulp.watch(['src/pug/data/*.json', 'src/pug/template/*.pug'], ['gen-detail']);
     gulp.watch("*.html").on('change', browserSync.reload);
 });
 

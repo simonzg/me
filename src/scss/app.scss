@@ -3,6 +3,10 @@
 @import "font";
 @import "bootstrap-partial";
 
+$size-small: 12px;
+$size-normal: 15px;
+$size-large: 18px;
+$size-jumbo: 28px;
 html,body,p,div,a{
   font-family: $font-family;
   color:$font-dark;
@@ -21,6 +25,15 @@ width:100%;
 // overflow-x:hidden;
 }
 
+.font-bold{
+  font-family: 'Lato', serif;
+  font-weight: 900;
+}
+.font-light{
+  font-family: "Lato", "Roboto", serif;
+  font-weight: 300;
+}
+
 p{
   margin-bottom: 5px !important;
 }
@@ -33,8 +46,8 @@ p{
   color:$font-dark !important;
 }
 .light{
-  font-family: $font-light;
-  font-size:16px;
+  @extend .font-light;
+  font-size:$size-normal;
   line-height: 24px;
 }
 // .nav-link{
@@ -46,11 +59,8 @@ p{
 ==============================*/
 .header{
   padding-top: 30px;
-  .nav-brand{
-    font-size: 30px;
-    font-weight: bold;
-    font-family: "Roboto";
-  }
+
+  // NOT USED
   .nav-wrapper{
     margin: 0;
     li{
@@ -238,11 +248,9 @@ $colors: (
   background: #4a4a4a;
   *{
     color:#c7c7c7;
-    font-size:14px;
   }
   .title{
-    font-weight: bold;
-    font-family: $font-bold;
+    @extend .font-bold;
   }
   ul.links{
     margin-left: 0;
@@ -270,7 +278,7 @@ $colors: (
   .foot-note{
     width:300px;
     text-align: right;
-    font-size: 12px;
+    font-size: $size-small;
     padding-top:15px;
   }
 }
@@ -377,17 +385,17 @@ $colors: (
   }
   .title, .body{
     text-align: center;
-    font-size:15px;
+    font-size:$size-normal;
   }
   .title{
     font-weight: bold;
     padding-top: 30px;
-    font-family: $font-bold;
+    @extend .font-bold;
   }
   .body{
     margin-top: 2px;
     padding-bottom: 80px;
-    font-family: $font-light;
+    @extend .font-light;
   }
   &:hover{
     cursor: pointer;
@@ -401,40 +409,45 @@ $colors: (
 
 .scroll {
   width: 100px;
-  height: 90px;
+  height: 65px;
   background-color: none;
   z-index: 5;
   position: fixed;
   bottom: 0;
   right: calc(50% - 50px);
-  animation: bounce 1s ease infinite;
+  animation: bounce 1.6s ease infinite;
+
+  h5 {
+    @extend .font-light;
+    text-align:center;
+    text-decoration:none;
+    font-size:$size-normal;
+  }
+
+  &:before {
+    position:absolute;
+    font-family: "xinzhang-jessy";
+    content: "\6b";
+    right:42%;
+    z-index:4;
+    top:45px;
+  }
 }
 
-.scroll h5 {
-  text-align:center;
-  text-decoration:none;
-  font-family:$font-bold;
-
-  font-size:13px;
-  font-weight:400;
-  padding-bottom:20px;
-}
-
-.scroll:before {
-  position:absolute;
-  font-family: "xinzhang-jessy";
-  content: "\6b";
-  right:42%;
-  z-index:4;
-}
-.scroll:before{
-  top:40px;
+.scroll.white {
+  color:white;
+  h5{
+    color:white;
+  }
+  &:before{
+    color:white;
+  }
 }
 
 @keyframes bounce {
-  from { bottom:-10px }
-  50% { bottom:-0 }
-  to { bottom:-10px }
+  from { bottom:70px }
+  60% { bottom:-0 }
+  to { bottom:70px }
 }
 /*=====  End of Scroll Animation  ======*/
 
@@ -448,21 +461,20 @@ $colors: (
   padding: 15px 35px;
   margin: 30px;
   .project-name{
-    font-weight: bold;
-    font-size:28px;
+    font-weight: 900;
+    font-size:$size-jumbo;
     margin-bottom: 15px;
   }
   .title, .body{
-    font-size:15px;
+    font-size:$size-normal;
     line-height: 20px;
   }
   .title{
-    font-weight: bold;
-    font-family: $font-bold;
+    @extend .font-bold;
   }
   .body{
+    @extend .font-light;
     margin-top: 0;
-    font-family: $font-light;
   }
 }
 /*=====  End of Detail Text  ======*/
@@ -602,9 +614,8 @@ $link-blue:      #2175FF;
   width:100%;
   margin-top: 150px;
   margin-bottom: 60px;
-  font-size:20px;
-  font-family: $font-bold;
-  font-weight: bold;
+  font-size:18px;
+  @extend .font-bold;
 }
 .separator:before, .separator:after{
   content: '';
@@ -615,11 +626,11 @@ $link-blue:      #2175FF;
 }
 
 .separator:before{
-  top:8px;
+  top:10px;
   left:0;
 }
 
 .separator:after{
-  top:8px;
+  top:10px;
   right:0;
 }

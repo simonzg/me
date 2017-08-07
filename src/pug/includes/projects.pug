@@ -1,13 +1,14 @@
 - var dataList = []
-- dataList.push({project: "seagull", title: "Seagull Studio", body: 'some descriptive text HERE!'})
-- dataList.push({project: "more", title: "More Studio", body: "some descriptive text HERE!" })
-- dataList.push({project: "mcd", title: "McDonald's China", body: "some descriptive text HERE!" })
-- dataList.push({project: "artfin", title: "Artfin", body: "some descriptive text HERE!" })
-- dataList.push({project: "live-in-the-real", title: "Live in the Real", body: "some descriptive text HERE!" })
-- dataList.push({project: "road", title: "Road", body: "some descriptive text HERE!" })
-- dataList.push({project: "iceland", title: "Song of Fire & Ice", body: "some descriptive text HERE!" })
+- dataList.push({project: "seagull", title: "Seagull Studio", body: 'Mobile app design'})
+- dataList.push({project: "more", title: "More Studio", body: "Responsive web design" })
+- dataList.push({project: "mcd", title: "McDonald's China", body: "Responsive web design" })
+- dataList.push({project: "artfin", title: "Artfin", body: "Navigation app design" })
+- dataList.push({project: "live-in-the-real", title: "Live in the Real", body: "Interactive video" })
+- dataList.push({project: "road", title: "Road", body: "Digital photograph" })
+- dataList.push({project: "summer", title: "Summer", body: "Digital photograph" })
+- dataList.push({project: "iceland", title: "Song of Fire & Ice", body: "Film photograph" })
 
-div.col-container(style='padding-top:80px;padding-bottom:50px;')
+div.col-container(style='padding-top:20px;padding-bottom:50px;')
   .col.col-left
     - for (var i=0; i< dataList.length; i+=2)
       - var project = dataList[i].project

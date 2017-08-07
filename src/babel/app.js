@@ -146,6 +146,7 @@ $(()=>{
     var currentThumbnail = $(e.target).parentsUntil('.col').last();
     window.location.href = currentThumbnail.data('href');
   });
+  $(window).scrollTop(0);
 
 });
 

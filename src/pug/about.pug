@@ -1,0 +1,28 @@
+extends layout/layout.pug
+
+block head
+  title About | Xin Zhang
+  style.
+    .scroll, .side-nav{display:none}
+    .footer{
+    position: fixed;
+    left:0;
+    bottom:0;
+    width:100%;
+    }
+    body{
+    height:auto !important;
+    }
+block content
+  .container()
+    .col-container(style='margin-top:130px;')
+      .col.hidden-sm-down(style='text-align:right')
+        img(src='/dist/image/portrait.png' width='300')
+      .col(style='margin-left:3%;padding-bottom:80px;')
+        h1.pt-40
+          div I'm Xin Zhang
+          div Designer &amp; Photographer
+        p.light This is me, a big fan of traveling and explored the simple but inspiring sense of the World.
+        p.light I’m also a designer and currently I live in San Jose, CA. Ever since 2007, I started to practice sketch and oil painting, which pay back with acute sense for illustration  and colors, and later proven essential to designer’s daily life.  As a designer, I always think  design is not just about creating beautiful impression, it has to be practical and meaningful to people as well. Ideally, good design has more than what meets the eye, it’s not only about how it looks, but a combination of a series of thoughtful decisions that are made with the audience. With this concerning, I’d appreciate to communicate with users to explore needs deeply make concept into real.
+
+

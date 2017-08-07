@@ -1,3 +1,4 @@
+var fs           = require('fs');
 var gulp         = require('gulp');
 var browserSync  = require('browser-sync').create();
 var gutil        = require('gulp-util');
@@ -21,6 +22,7 @@ var exorcist     = require('exorcist');
 var browserify   = require('browserify');
 
 var pug = require('gulp-pug');
+var data = require('gulp-data');
 
 gulp.task('pug', function buildHTML() {
   return gulp.src(['src/pug/*.pug'])
@@ -29,6 +31,37 @@ gulp.task('pug', function buildHTML() {
   .pipe(gulp.dest(''))
 });
 
+gulp.task('gen-detail', function generateDetailPages(){
+    const folder = 'src/pug/data';
+
+    fs.readdir(folder, (err, files) => {
+      files.forEach(file => {
+        var basename = file.split('.')[0];
+        console.log(basename);
+        return gulp.src(['src/pug/template/detail.pug'])
+            .pipe(data(function(file) {
+              var json = require('./src/pug/data/'+basename+'.json');
+              json['order'] = [
+                'projects',
+                'seagull',
+                'mcd',
+                'more',
+                'artfin',
+                'live-in-the-real',
+                'iceland',
+                'road',
+                'summer',
+                'projects'
+              ]
+              return json;
+            }))
+            .pipe(pug({}))
+            .pipe(rename(basename+'.html'))
+            .pipe(gulp.dest(''));
+    });
+  })
+
+})
 // autoprefixer options
 var autoprefixerOptions = {
   browsers: ['last 2 versions', '> 5%', 'Firefox ESR']
@@ -96,34 +129,47 @@ gulp.task('imagemin', function(){
         .pipe(gulp.dest('dist/image/'));
 });
 
-gulp.task('lib-js', function(){
-    return gulp.src([
-        'node_modules/fullpage.js/dist/jquery.fullpage.min.js',
-        ])
-        .pipe(gulp.dest('dist/js/'));
-});
-
-
-gulp.task('lib-css', function(){
-    return gulp.src([
-        'node_modules/fullpage.js/dist/jquery.fullpage.min.css'
-        ])
-        .pipe(gulp.dest('dist/css/'));
-});
-
-gulp.task('lib', ['lib-js','lib-css'], function(){});
-
 // Static Server + watching scss/html files
-gulp.task('serve', ['pug', 'lib', 'babel', 'sass'], function() {
+gulp.task('serve', ['pug', 'gen-detail', 'img', 'babel', 'sass'], function() {
 
     browserSync.init({
         server: "./"
     });
 
     gulp.watch(['src/scss/*.scss'], ['sass']);
-    gulp.watch(['src/pug/*.pug'], ['pug']);
-    gulp.watch(['src/pug/**/*.pug'], ['pug']);
+    gulp.watch(['src/pug/**/*.pug'], ['pug','gen-detail']);
+    gulp.watch(['src/pug/data/*.json'], ['gen-detail']);
+    gulp.watch(['src/image/**/*'], ['img']);
     gulp.watch("*.html").on('change', browserSync.reload);
 });
 
 gulp.task('default', ['serve']);
+
+var imageResize = require('gulp-image-resize');
+
+gulp.task('img', function () {
+    var dest = 'dist/image/'
+    // move everything other than .jpg to destination
+    gulp.src(['src/image/**/*', '!src/image/**/*.jpg'])
+    .pipe(gulp.dest(dest))
+
+    // resize every jpg except main to width 1100
+    gulp.src(['src/image/**/*.jpg', '!src/image/**/main-*.jpg', '!src/image/**/bg-*.jpg'])
+    .pipe(imageResize({
+      width : 1100,
+      crop : false,
+      upscale : false,
+      imageMagick: true
+      }))
+    .pipe(gulp.dest(dest));
+
+    // resize every main image to width 1600
+    return gulp.src(['src/image/**/main-*.jpg', 'src/image/**/bg-*.jpg'])
+    .pipe(imageResize({
+        width:1600,
+        crop: false,
+        upscale: false,
+        imageMagick: true
+    }))
+    .pipe(gulp.dest(dest));
+});

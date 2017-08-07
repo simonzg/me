@@ -16,7 +16,7 @@ html
     include ../includes/side-nav.pug
     include ../includes/header.pug
 
-    .scroll
+    div(class=`scroll ${scroll_class}`)
       a(href='#scroll')
         h5 scroll
     block content

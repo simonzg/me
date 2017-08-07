@@ -32,6 +32,11 @@ p{
   font-weight: bold;
   color:$font-dark !important;
 }
+.light{
+  font-family: $font-light;
+  font-size:16px;
+  line-height: 24px;
+}
 // .nav-link{
 //   padding-left: 10px;
 //   padding-right: 10px;
@@ -311,7 +316,7 @@ $colors: (
   /* Force the background image to fill the whole element. */
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center top;
+  background-position: center center;
   /* Keep the image from overlapping sibling elements. */
   width:100%;
   height:100%;
@@ -340,7 +345,7 @@ $colors: (
 
 // Detail
 .detail-img{
-  padding:20px;
+  padding:20px 0;
   width:100%;
   height:auto;
 }
@@ -590,3 +595,31 @@ $link-blue:      #2175FF;
 
 
 /*=====  End of Video Container  ======*/
+
+.separator{
+  text-align: center;
+  position: relative;
+  width:100%;
+  margin-top: 150px;
+  margin-bottom: 60px;
+  font-size:20px;
+  font-family: $font-bold;
+  font-weight: bold;
+}
+.separator:before, .separator:after{
+  content: '';
+  position: absolute;
+  height:0;
+  width:calc(50% - 280px);
+  border-bottom:1px solid #c7c7c7;
+}
+
+.separator:before{
+  top:8px;
+  left:0;
+}
+
+.separator:after{
+  top:8px;
+  right:0;
+}

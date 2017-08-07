@@ -13,8 +13,6 @@ block content
   div(class='fullscreen-bg' style=`background-image: url(/dist/image/${name}/main-${name}.jpg);`)
 
   section.container.pt-60.pb-60
-
-    =name
     .detail-text
       .project-name #{display_name}
       .col-container
@@ -34,4 +32,5 @@ block content
       .detail-img-wrapper
         img.detail-img(src=`/dist/image/${name}/detail-${name}-${index}.jpg`)
 
+    .separator Selection of Works
     include ../includes/projects.pug

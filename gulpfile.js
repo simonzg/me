@@ -130,7 +130,7 @@ gulp.task('imagemin', function(){
 });
 
 // Static Server + watching scss/html files
-gulp.task('serve', ['pug', 'gen-detail', 'img', 'babel', 'sass'], function() {
+gulp.task('serve', ['pug', 'gen-detail', 'babel', 'sass'], function() {
 
     browserSync.init({
         server: "./"
